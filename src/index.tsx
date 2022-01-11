@@ -1,21 +1,21 @@
 import dotenv from 'dotenv';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { RecoilRoot } from 'recoil';
-import ReactApp from './App';
+import { HashRouter } from 'react-router-dom';
+import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
-import './styles/index.scss';
+import ThemeProvider, { ThemedGlobalStyle } from './theme';
 
 dotenv.config();
 
 ReactDOM.render(
   <React.StrictMode>
-    <RecoilRoot>
-      <Router>
-        <ReactApp />
-      </Router>
-    </RecoilRoot>
+    <HashRouter>
+      <ThemeProvider>
+        <ThemedGlobalStyle />
+        <App />
+      </ThemeProvider>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root'),
 );
